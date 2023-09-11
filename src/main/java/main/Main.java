@@ -75,7 +75,7 @@ private static void readBook(){
 
     // Hiển thị danh sách các Sách không có tên là Java
     public List<Book> findBooksNotContainingJava() {
-        String keyword = "Java"; // Từ khóa cần tìm kiếm
+        String keyword = "Java";
         List<Book> books = bookRepository.findAllByNameNotLike("%" + keyword + "%");
         return books;
     }
