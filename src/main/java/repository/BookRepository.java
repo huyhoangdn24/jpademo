@@ -13,20 +13,13 @@ import java.util.Optional;
 
 @Repository
 public interface BookRepository extends CrudRepository<BookEntity,Integer> {
-    List<Book> findAllByNameNotLike(@Param("keyword") String keyword);
-
-    List<Book> findAllByPublishDateBefore(LocalDate currentDate);
-
-    Optional<Book> findById(Long id);
-
-    void deleteById(Long id);
-
-    List<Book> findAllByPriceEquals(Double oldPrice);
-
-    void updateByPrice(Double newPrice, Double oldPrice);
 
 
+    List<BookEntity> findAllByPriceEquals(Double oldPrice);
 
-    List<Book> findAllByNameLikeAndAuthorLike(String name, String author);
-    void deleteAllByNameLikeAndAuthorLike(String name, String author);
+    List<BookEntity> findBooksPublishedBeforeNow(LocalDate currentDate);
+
+    List<BookEntity> findAllByNameContaining(String name);
+
+    List<BookEntity> deletedByNameAndAuthor(String java, String john);
 }
